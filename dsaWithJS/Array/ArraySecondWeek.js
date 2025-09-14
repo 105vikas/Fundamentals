@@ -10,6 +10,7 @@ let arr = [14, 5, 9, 1, 6, 7, 1]
 
 let firstLargest = -1;
 let SecondLargest = -1;
+
 for (let i = 0; i < arr.length; i++) {
     if (arr[i] > firstLargest) {
         SecondLargest = firstLargest
@@ -19,13 +20,13 @@ for (let i = 0; i < arr.length; i++) {
         SecondLargest = arr[i]
     }
 }
+
 console.log("first Largest: ", firstLargest)
 console.log("Second Largest: ", SecondLargest)
 
 
 
 // 3.Compress a string Input: "aaabbcccaaa" â†’ Output: "a3b2c3a3"
-
 let value = "aaabbcccaaa"
 let outPut = '';
 let count = 1;
@@ -39,6 +40,7 @@ for (let i = 0; i < value.length; i++) {
         count = 1;
     }
 }
+
 console.log("Output string with a value: ", outPut) // Output string with a value:  a3b2c3a3
 
 
@@ -50,9 +52,9 @@ console.log(ar.reverse())   // for loop
 
 
 // 5.Find Missing number in array [9,6,4,2,3,5,7,0,1]
-
 let missingArray = [9, 6, 4, 2, 3, 5, 7, 0, 1]          // T(n)
 missingArray.sort();
+
 for (let i = 0; i < missingArray.length; i++) {
     if (i !== missingArray[i]) {
         console.log("Missing Element :", i)
@@ -63,11 +65,10 @@ for (let i = 0; i < missingArray.length; i++) {
 
 
 // 6.Remove duplicate numbers from sorted array [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
-
 let removeArray = [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
-let newArray = [];                          // not use new arry & last digigint i++;
-
+let newArray = [];    // not use new arry & last digigint i++;
 let time = 0;
+
 for (let i = 0; i < removeArray.length; i++) {
     if (removeArray[i] === removeArray[i + 1]) {
         if (time === 0) {
@@ -80,6 +81,7 @@ for (let i = 0; i < removeArray.length; i++) {
         newArray.push(removeArray[i])
     }
 }
+
 console.log("Remove duplicate numbers: ", newArray)
 
 
@@ -145,6 +147,7 @@ function mergeShortedArray(array1, array2) {
     }
     console.log(mergedArray)
 }
+
 mergeShortedArray(array1, array2)
 
 
@@ -159,8 +162,10 @@ const rotateArrayFun = (array, rotate) => {
     let data = array.concat(...removedArry)
     return data;
 }
+
 let rotatedArray = rotateArrayFun(arrayForRotate, rotateBy);
 console.log("Rotated Array value: ", rotatedArray)  // [4, 5, 6, 7, 8, 0, 1, 2, 3]
+
 // [ 5, 6, 7, 8, 0, 1, 2, 3,4]
 
 //[0, 1, 2, 3, 4, 5, 6, 7, 8]  ->[8,7,5....]->8,7,5
