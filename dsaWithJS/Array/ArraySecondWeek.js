@@ -1,11 +1,11 @@
-// Check if array is sorted or not
+// 1.Check if array is sorted or not
 
 let array = [1, 2, 3, 4, 5, 6, 7, 8]
 console.log(Array.isArray(array))
 
 
-// Find the largest and the Second largest Element in an array
 
+// 2.Find the largest and the Second largest Element in an array
 let arr = [14, 5, 9, 1, 6, 7, 1]
 
 let firstLargest = -1;
@@ -23,7 +23,8 @@ console.log("first Largest: ", firstLargest)
 console.log("Second Largest: ", SecondLargest)
 
 
-// Compress a string Input: "aaabbcccaaa" â†’ Output: "a3b2c3a3"
+
+// 3.Compress a string Input: "aaabbcccaaa" â†’ Output: "a3b2c3a3"
 
 let value = "aaabbcccaaa"
 let outPut = '';
@@ -38,15 +39,17 @@ for (let i = 0; i < value.length; i++) {
         count = 1;
     }
 }
-console.log("Output string with a value: ", outPut)
-// Output string with a value:  a3b2c3a3
+console.log("Output string with a value: ", outPut) // Output string with a value:  a3b2c3a3
 
-// Reverse an array with Space Complexity O(1)
 
+
+// 4.Reverse an array with Space Complexity O(1)
 let ar = [1, 2, 3, 4, 5, 6, 7, 8]
 console.log(ar.reverse())   // for loop
 
-// Find Missing number in array [9,6,4,2,3,5,7,0,1]
+
+
+// 5.Find Missing number in array [9,6,4,2,3,5,7,0,1]
 
 let missingArray = [9, 6, 4, 2, 3, 5, 7, 0, 1]          // T(n)
 missingArray.sort();
@@ -58,7 +61,8 @@ for (let i = 0; i < missingArray.length; i++) {
 }
 
 
-// Remove duplicate numbers from sorted array [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
+
+// 6.Remove duplicate numbers from sorted array [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
 
 let removeArray = [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
 let newArray = [];                          // not use new arry & last digigint i++;
@@ -76,26 +80,11 @@ for (let i = 0; i < removeArray.length; i++) {
         newArray.push(removeArray[i])
     }
 }
-// console.log("Remove duplicate numbers: ", newArray)
+console.log("Remove duplicate numbers: ", newArray)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//-------------- 3) two string anagrams
-// 
+// 7.two string anagrams
 let string1 = "viiaas"
 let string2 = "saaiva"
 
@@ -128,7 +117,8 @@ function checkAnagrams(string1, string2) {
 checkAnagrams(string1, string2);
 
 
-// --------------4) merge two sorted arrays in to one sorted arrays    // m+N
+
+// 8.merge two sorted arrays in to one sorted arrays    // m+N
 let array1 = [3, 5, 7, 8, 13, 16]
 let array2 = [1, 2, 6, 9, 12]
 
@@ -155,10 +145,11 @@ function mergeShortedArray(array1, array2) {
     }
     console.log(mergedArray)
 }
-// mergeShortedArray(array1, array2)
+mergeShortedArray(array1, array2)
 
 
-//----------------------------- 7) right rotate an array by K numbers
+
+// 9.right rotate an array by K numbers
 
 let arrayForRotate = [0, 1, 2, 3, 4, 5, 6, 7, 8]        // O(n)
 let rotateBy = 4;
