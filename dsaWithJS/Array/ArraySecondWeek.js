@@ -1,7 +1,23 @@
 // 1.Check if array is sorted or not
-
-let array = [1, 2, 3, 4, 5, 6, 7, 8]
-console.log(Array.isArray(array))
+let array = [1, 2, 1]
+let sortedArray = true
+let decrement = !!(array[0] > array[1])
+let increment = !!(array[0] < array[1])
+if (increment) {
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i] >= array[i + 1]) {
+            sortedArray = false
+        }
+    }
+}
+if (decrement) {
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i] <= array[i + 1]) {
+            sortedArray = false
+        }
+    }
+}
+console.log("Array is shorted: ", sortedArray)
 
 
 
@@ -31,8 +47,12 @@ let value = "aaabbcccaaa"
 let outPut = '';
 let count = 1;
 
-for (let i = 0; i < value.length; i++) {
-    if (value.charAt(i) === value.charAt(i + 1)) {      // last not include
+if (value === "") {
+    console.log("Blank array");
+}
+for (let i = 0; i < value.length - 1; i++) {
+    if (value.charAt(i) === value.charAt(i + 1)) {
+        console.log(value.charAt(i + 1), i)
         count++;
     } else {
         outPut = outPut + value.charAt(i);
@@ -40,7 +60,9 @@ for (let i = 0; i < value.length; i++) {
         count = 1;
     }
 }
-
+outPut = outPut + value.charAt(value.
+    length - 1);
+outPut = outPut + count;
 console.log("Output string with a value: ", outPut) // Output string with a value:  a3b2c3a3
 
 
@@ -65,24 +87,16 @@ for (let i = 0; i < missingArray.length; i++) {
 
 
 // 6.Remove duplicate numbers from sorted array [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
-let removeArray = [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18];
-let newArray = [];    // not use new arry & last digigint i++;
-let time = 0;
-
-for (let i = 0; i < removeArray.length; i++) {
+let removeArray = [2, 4, 4, 6, 8, 8, 10, 10, 10, 18, 18, 18];
+let i = 0;
+while (i < removeArray.length - 1) {
     if (removeArray[i] === removeArray[i + 1]) {
-        if (time === 0) {
-            newArray.push(removeArray[i])
-        }
-        time++;
-        i++;
+        removeArray.splice(i, 1);
     } else {
-        time = 0;
-        newArray.push(removeArray[i])
+        i++;
     }
 }
-
-console.log("Remove duplicate numbers: ", newArray)
+console.log("Remove duplicate numbers: ", removeArray)
 
 
 
@@ -121,33 +135,32 @@ checkAnagrams(string1, string2);
 
 
 // 8.merge two sorted arrays in to one sorted arrays    // m+N
-let array1 = [3, 5, 7, 8, 13, 16]
-let array2 = [1, 2, 6, 9, 12]
+let array1 = [-3, -1, 4, 6]
+let array2 = [-2, 6]
 
 function mergeShortedArray(array1, array2) {
     let mergedArray = [];
     let i = 0;
     let j = 0;
-    while (array1.length > 0 && array2.length > 0) {
+    while (i < array1.length && j < array2.length) {
         if (array1[i] > array2[j]) {
             mergedArray.push(array2[j])
-            array2.shift()              // remove shift
+            j++
         } else {
             mergedArray.push(array1[i])
-            array1.shift()
+            i++
         }
     }
-    while (array1.length > 0) {
+    while (i < array1.length) {
         mergedArray.push(array1[i])
-        array1.shift()
+        i++
     }
-    while (array2.length > 0) {
+    while (j < array2.length) {
         mergedArray.push(array2[j])
-        array2.shift()
+        j++;
     }
-    console.log(mergedArray)
+    console.log("Merged Array: ", mergedArray)
 }
-
 mergeShortedArray(array1, array2)
 
 
@@ -155,19 +168,33 @@ mergeShortedArray(array1, array2)
 // 9.right rotate an array by K numbers
 
 let arrayForRotate = [0, 1, 2, 3, 4, 5, 6, 7, 8]        // O(n)
-let rotateBy = 4;
+let rotateBy = 9;
 
 const rotateArrayFun = (array, rotate) => {
-    let removedArry = array.splice(0, rotate + 1)
-    let data = array.concat(...removedArry)
-    return data;
+    if (array.length <= 1) {
+        return array
+    }
+    array.reverse()
+    let rotateInital = 0;
+    let rotateLast = rotate - 1;
+    let i = rotate;
+    let j = array.length - 1;
+    while (rotateInital <= rotateLast) {
+        let theredVariable = array[rotateLast]
+        array[rotateLast] = array[rotateInital]
+        array[rotateInital] = theredVariable;
+        rotateInital++;
+        rotateLast--;
+    }
+    while (i <= j) {
+        let theredVariable = array[j]
+        array[j] = array[i]
+        array[i] = theredVariable;
+        i++;
+        j--;
+    }
+    return array;
 }
 
 let rotatedArray = rotateArrayFun(arrayForRotate, rotateBy);
 console.log("Rotated Array value: ", rotatedArray)  // [4, 5, 6, 7, 8, 0, 1, 2, 3]
-
-// [ 5, 6, 7, 8, 0, 1, 2, 3,4]
-
-//[0, 1, 2, 3, 4, 5, 6, 7, 8]  ->[8,7,5....]->8,7,5
-//[8,7,6,5,4,3,2,1,0]
-//[5,6,7,8,0,1,2,3,4]
