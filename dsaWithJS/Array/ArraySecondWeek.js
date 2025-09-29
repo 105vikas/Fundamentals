@@ -74,7 +74,7 @@ console.log(ar.reverse())   // for loop
 
 
 // 5.Find Missing number in array [9,6,4,2,3,5,7,0,1]
-let missingArray = [9, 6, 4, 2, 3, 5, 7, 0, 1]          // T(n)
+let missingArray = [9, 6, 4, 2, 3, 5, 7, 0, 1]          // T(n) -> sum-sum=missing 
 missingArray.sort();
 
 for (let i = 0; i < missingArray.length; i++) {
